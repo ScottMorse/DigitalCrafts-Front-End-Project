@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+}
+
+.pop-up {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 0.8s ease;
+    display: none;
+    opacity: 0;
+    z-index: 10;
+}
+
+.bckg-mask {
+    z-index: -1;
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.pop-main {
+    width: 400px;
+    background-color: rgb(224, 35, 35);
+    border: 10px solid maroon;
+    box-shadow: 0 0 5px 2px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-center{
+    justify-content: center;
+}
+
+.pop-height-lock{
+    height: 400px;
+}
+
+.pop-x{
+    font-family: sans-serif;
+    font-size: 40px;
+    color: maroon;
+    margin-left: 5px;
+    transform: translateX(calc(50vw - 190px));
+    align-self: flex-start;
+}
+
+.pop-x:hover {
+    cursor: pointer;
+}
+
+.pop-title {
+    font-family: sans-serif;
+    color: whitesmoke;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+    font-size: 40px;
+}
+
+.fire-form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.textBox {
+    font-size: 20px;
+}
+
+.submit-button {
+    font-size: 50px;
+}
+
+.content-slider {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 768px){
+    .pop-main{
+        width: 300px;
+    }
+    .pop-height-lock{
+        height: 300px;
+    }
+    .pop-x{
+        transform: translateY(-130px);
+    }
+}

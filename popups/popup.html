@@ -1,0 +1,67 @@
+<html>
+    <head><title>Test Popups</title></head>
+    <link rel="stylesheet" href="popupstyle.css"/>
+    <body>
+        <div id="log-pop" class="pop-up">
+            <div class="bckg-mask"></div>
+            <div class="pop-main pop-center pop-height-lock">
+                <div class="pop-x">X</div>
+                <div class="pop-title">Login</div>
+                <form id="log-form" class="fire-form">
+                    <input id="log-email" class="textBox emailBox" type="email" placeholder="example@email.com" required/>
+                    <input id="log-pswd" class="textBox pswdBox" type="password" placeholder="*******" required/>
+                    <input id="log-submit" class="submit-button" type="submit" value="Submit"/> 
+                </form>
+            </div>
+        </div>
+        <div id="reg-pop" class="pop-up">
+            <div class="bckg-mask"></div>
+            <div class="pop-x">X</div>
+            <div class="pop-main pop-center pop-height-lock">
+                <div class="pop-title">Register</div>
+                <form id="reg-form" class="fire-form">
+                    <input id="reg-email" class="textBox emailBox" type="email" placeholder="example@email.com" required/>
+                    <input id="reg-pswd" class="textBox pswdBox" type="password" placeholder="*******" required/>
+                    <input id="reg-submit" class="submit-button" type="submit" value="Submit"/> 
+                </form>
+            </div>
+        </div>
+        <div id="example-pop" class="pop-up">
+            <div class="bckg-mask"></div>
+            <div class="pop-main">
+                <div class="pop-x">X</div>
+                <div class="pop-title">Movies!</div>
+                <div id="example-movies" class="content-slider">
+                    <div class="previous">Previous</div>
+                    <div class="next">Next</div>
+                    <div class="movie content">
+                        <div class="movie">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="reg-button">Register</button>
+        <button id="log-button">Login</button>
+        <button id="example-button">Example</button>
+
+        <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-database.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+            apiKey: "AIzaSyCdJT_SH9xknJyh3BEHten2g4pnkVJ1ieo",
+            authDomain: "dc-front-end-project.firebaseapp.com",
+            databaseURL: "https://dc-front-end-project.firebaseio.com",
+            projectId: "dc-front-end-project",
+            storageBucket: "dc-front-end-project.appspot.com",
+            messagingSenderId: "45275738743"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script src="firebase_stuff.js"></script>
+        <script src="popups.js"></script>
+    </body>
+</html>
