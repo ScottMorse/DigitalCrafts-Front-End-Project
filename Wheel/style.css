@@ -40,7 +40,7 @@ background-size: contain;
   position: absolute;
   width: 130px;
   height: 130px;
-  transform: translate(calc(50vw - 250px),100px);
+  transform: translate( -50%, -50%);
   border: none;
   box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
   border-radius: 50%;

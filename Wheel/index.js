@@ -1,7 +1,7 @@
 
 
 
-var options = ["Cook dinner", "Try again", "Eat out", "Be active", "Movies","Cook dinner", "Try again", "Eat out", "Be active", "Movies"];
+var options = ["Cook dinner", "Try again", "Eat out", "Wildcard", "Movies","Cook dinner", "Wildcard", "Eat out", "Be active", "Movies"];
 
 var startAngle = 0;
 var arc = Math.PI / (options.length / 2);
@@ -11,6 +11,9 @@ var spinArcStart = 10;
 var spinTime = 0;
 var spinTimeTotal = 0;
 
+var wheelSize = getWheelDiameter()
+var isMobile = checkMobile()
+
 var ctx;
 
 var canvas = document.getElementById("canvas");
@@ -18,8 +21,6 @@ var canvas = document.getElementById("canvas");
 
 // canvas.width  = window.innerWidth;
 // canvas.height = window.innerHeight;
-
-responsiveWheel(getWheelDiameter)
 
 
 
@@ -99,21 +100,21 @@ function getColor(item, maxitem) {
 //   }
 // }
 
-function responsiveWheel(diameter, isMobile) {
+function responsiveWheel() {
   var canvas = document.getElementById("canvas");
   if (canvas.getContext) {
 
-    canvas.width  = diameter;
-    canvas.height = diameter;
+    canvas.width  = wheelSize;
+    canvas.height = wheelSize;
 
-    var wheelRadius = diameter/2
+    var wheelRadius = wheelSize/2
 
     var outsideRadius = wheelRadius - 5;
-    var textRadius = diameter/3;
-    var insideRadius = wheelRadius / 4;
+    var textRadius = wheelSize/3;
+    var insideRadius = wheelRadius / 5;
 
     ctx = canvas.getContext("2d");
-    ctx.clearRect(0,0,diameter,diameter);
+    ctx.clearRect(0,0,wheelSize,wheelSize);
 
     ctx.strokeStyle = "black";
     ctx.lineWidth = 5;
@@ -142,7 +143,7 @@ function responsiveWheel(diameter, isMobile) {
       var text = options[i];
 
       if(isMobile == false){
-        ctx.fillText(text, -ctx.measureText(text).width / 3, 0);
+        ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
       }
       ctx.restore();
     }
@@ -173,14 +174,15 @@ function spin() {
 
 function rotateWheel() {
   spinTime += 30;
+  console.log(spinTime, spinTimeTotal)
   if(spinTime >= spinTimeTotal) {
+
     stopRotateWheel();
     return;
   }
   var spinAngle = spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
   startAngle += (spinAngle * Math.PI / 100);
-  var diameter = getWheelDiameter
-  responsiveWheel(diameter)
+  responsiveWheel()
   spinTimeout = setTimeout('rotateWheel()', 30);
 }
 
@@ -194,7 +196,7 @@ function stopRotateWheel() {
   var text = options[index]
 
   //to show result
-  ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
+  //ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
 
 
   ctx.restore();
@@ -210,33 +212,33 @@ function easeOut(t, b, c, d) {
 function getWheelDiameter(){
   var winHeight = window.innerHeight
   var winWidth = window.innerWidth
-  var diameter = null
+  var wheelSize = null
 
   // if window height is greater than winWidth
-  // set diameter value to winWidth because it is smaller
+  // set wheelSize value to winWidth because it is smaller
   // otherwise set it to winHeigt if it is smaller
   // this will make sure that the circle is never cut off
   if(winHeight > winWidth){
-    diameter = winWidth
+    wheelSize = winWidth
   }
   else{
-    diameter = winHeight
+    wheelSize = winHeight
   }
 
-  return diameter
+  return wheelSize
 }
 
 window.addEventListener('resize', resizeWindow)
 
 function resizeWindow(){
-  var diameter = getWheelDiameter()
-  var isMobile = checkMobile(diameter)
-  responsiveWheel(diameter, isMobile)
+  wheelSize = getWheelDiameter()
+  isMobile = checkMobile()
+  responsiveWheel()
 }
 
-function checkMobile(diameter){
+function checkMobile(){
 
-  if(diameter <= 470){
+  if(wheelSize <= 470){
     return true
   }
   else{
