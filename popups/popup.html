@@ -2,7 +2,7 @@
     <head><title>Test Popups</title></head>
     <link rel="stylesheet" href="popupstyle.css"/>
     <body>
-        <div id="log-pop" class="pop-up">
+        <div id="log-pop" class="pop-up square-pop">
             <div class="bckg-mask"></div>
             <div class="pop-main pop-center pop-height-lock">
                 <div class="pop-x">X</div>
@@ -14,10 +14,10 @@
                 </form>
             </div>
         </div>
-        <div id="reg-pop" class="pop-up">
+        <div id="reg-pop" class="pop-up square-pop">
             <div class="bckg-mask"></div>
-            <div class="pop-x">X</div>
             <div class="pop-main pop-center pop-height-lock">
+                <div class="pop-x">X</div>
                 <div class="pop-title">Register</div>
                 <form id="reg-form" class="fire-form">
                     <input id="reg-email" class="textBox emailBox" type="email" placeholder="example@email.com" required/>
@@ -26,17 +26,39 @@
                 </form>
             </div>
         </div>
-        <div id="example-pop" class="pop-up">
+        <div id="example-pop" class="pop-up full-pop">
             <div class="bckg-mask"></div>
             <div class="pop-main">
                 <div class="pop-x">X</div>
-                <div class="pop-title">Movies!</div>
-                <div id="example-movies" class="content-slider">
-                    <div class="previous">Previous</div>
-                    <div class="next">Next</div>
-                    <div class="movie content">
-                        <div class="movie">
-
+                <div class="pop-title">Movie Night</div>
+                <div class="pop-subtitle">Hot movies showing near you:</div>
+                <div id="movie-prev" class="previous cont-control">Previous</div>
+                <div id="movie-next" class="next cont-control">Next</div>
+                <div id="example-movies" class="slider">
+                    <div id="movies" class="cont-wrap">
+                        <div id="movie-num" class="cont-num">1/5</div>
+                        <div id="movie1" class="movie content starting-content">
+                            <div class="movie-title cont-title">The Big Lebowski</div>
+                            <div class="movie-img cont-img" style="background-image: url('https://cdn1.thr.com/sites/default/files/imagecache/list_landscape_960x541/2018/03/big_lebowski_1998_10_copy_-_h_2018.jpg')"></div>
+                            <a class="movie-link cont-link" href="#">Get your tickets for now!</a>
+                            <div class="movie-theater">Theater: Star Cinema</div>
+                            <div id="map" class="movie-map cont-map"></div>
+                        </div>
+                        <div id="movie2" class="movie content">
+                            <div class="movie-title cont-title">The Big Lebowski</div>
+                            <div class="movie-img cont-img" style="background-image: url('https://cdn1.thr.com/sites/default/files/imagecache/list_landscape_960x541/2018/03/big_lebowski_1998_10_copy_-_h_2018.jpg')"></div>
+                            <a class="movie-link cont-link" href="#">Get your tickets for now!</a>
+                            <div class="movie-theater">Theater: Star Cinema</div>
+                            <div id="map" class="movie-map cont-map"></div>
+                        </div>
+                        <div id="movie3" class="movie content">
+                            
+                        </div>
+                        <div id="movie4" class="movie content">
+                            
+                        </div>
+                        <div id="movie5" class="movie content">
+                            
                         </div>
                     </div>
                 </div>
@@ -62,6 +84,8 @@
             firebase.initializeApp(config);
         </script>
         <script src="firebase_stuff.js"></script>
+        <script src="../googlemaps.js"></script>
+        <script src="../geolocation.js"></script>
         <script src="popups.js"></script>
     </body>
 </html>
