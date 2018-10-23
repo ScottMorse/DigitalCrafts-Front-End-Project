@@ -4,7 +4,7 @@
 body{
 
 margin: 0px;
-height: 100%;
+
 
 }
 
@@ -25,7 +25,7 @@ background-size: contain;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
+    z-index: -1;
 
 }
 
@@ -36,11 +36,14 @@ background-size: contain;
 
 
 .pulse-button {
-
+  display: block;
   position: absolute;
+  z-index: 1;
   width: 130px;
   height: 130px;
-  transform: translate( -50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: none;
   box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
   border-radius: 50%;
