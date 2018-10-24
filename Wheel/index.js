@@ -1,7 +1,7 @@
 
 
 
-var options = ["Cook dinner", "Try again", "Eat out", "Wildcard", "Movies","Cook dinner", "Wildcard", "Eat out", "Be active", "Movies"];
+var options = ["Cook dinner", "Try again", "Eat out", "Wildcard", "Movies","Cook dinner", "Try again", "Eat out", "Wildcard", "Movies"];
 
 var startAngle = 0;
 var arc = Math.PI / (options.length / 2);
@@ -109,9 +109,9 @@ function responsiveWheel() {
 
     var wheelRadius = wheelSize/2
 
-    var outsideRadius = wheelRadius - 5;
+    var outsideRadius = wheelRadius - 40;
     var textRadius = wheelSize/3;
-    var insideRadius = wheelRadius / 5;
+    var insideRadius = wheelRadius / 6;
 
     ctx = canvas.getContext("2d");
     ctx.clearRect(0,0,wheelSize,wheelSize);
@@ -196,11 +196,17 @@ function stopRotateWheel() {
   var text = options[index]
 
   //to show result
-  //ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
+  ctx.fillText(text, 350 - ctx.measureText(text).width / 2, 250 + 100);
 
 
   ctx.restore();
 }
+
+function displayResult(){
+
+
+}
+
 
 function easeOut(t, b, c, d) {
   var ts = (t/=d)*t;
