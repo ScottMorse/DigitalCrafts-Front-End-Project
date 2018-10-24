@@ -10,25 +10,34 @@ let result
 
 const ingredientTextBox = document.getElementById('ingredientTextBox')
 const ingredientForm = document.getElementById('ingredientForm')
+const ingredientSelector = document.getElementById('ingredient-selector')
+const recipeEls = Array.from(document.querySelectorAll('.recipe'))
 
 let userIngredient
 function getUserIngredient(e){
     e.preventDefault()
     userIngredient = ingredientTextBox.value
+    ingredientTextBox.value = ""
+    ingredientTextBox.placeholder = "Loading..."
     console.log(userIngredient)
     fetch(`https://api.edamam.com/search?q=${userIngredient}&app_id=8e3c8927&app_key=2b4db69ee5e91a3ca5d9abe068e41287&from=0&to=5&calories=600-1000&Diet=balanced`)
     .then(response=>response.json())
     .then(foodjson=>{
       result=foodjson
+      ingredientSelector.style.opacity = 0
+      setTimeout(()=>ingredientSelector.style.display = 'none',800)
       // console.log(foodjson)
       console.log(result.hits)
-
       const hits = result.hits
-
-      let foodList = document.getElementById("foodList")
-      let foodListLength = result.hits.length
-      console.log(foodListLength)
-    })
+      let ri = 1
+      recipeEls.forEach(recipeEl => {
+          const recipeObj = result.hits[ri - 1]
+          recipeEl.children[0].innerHTML = recipeObj.recipe.label
+          recipeEl.children[1].style.backgroundImage = 'url(' + recipeObj.recipe.image + ')'
+          recipeEl.children[2].href = recipeObj.recipe.url
+          ri ++
+      })
+   })
 }
 
 ingredientForm.addEventListener('submit',getUserIngredient)
