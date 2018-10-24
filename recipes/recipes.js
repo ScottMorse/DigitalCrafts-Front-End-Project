@@ -12,7 +12,7 @@ function textInput(){
   recipeHits = getRecipesFromIngredient(textBox.value)
 }
 
-fetch("https://api.edamam.com/search?q=chicken&app_id=8e3c8927&app_key=2b4db69ee5e91a3ca5d9abe068e41287&from=0&to=10&calories=1000-1500&Diet=balanced")
+fetch("https://api.edamam.com/search?q=italian&app_id=8e3c8927&app_key=2b4db69ee5e91a3ca5d9abe068e41287&from=0&to=10&calories=1000-1500&Diet=balanced")
 .then(response=>response.json())
 .then(foodjson=>{
   result=foodjson
