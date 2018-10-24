@@ -25,8 +25,9 @@ function getUserIngredient(e){
     .then(foodjson=>{
       result=foodjson
       ingredientSelector.style.opacity = 0
-      setTimeout(()=>ingredientSelector.style.display = 'none',800)
-      // console.log(foodjson)
+      setTimeout(()=>{
+        ingredientSelector.style.display = 'none'
+      },800)
       console.log(result.hits)
       const hits = result.hits
       let ri = 1
