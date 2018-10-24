@@ -26,7 +26,7 @@ function initMap() {
     getLocalTheaters()
     const yelpScript = document.createElement('script')
     yelpScript.src = 'yelp.js'
-    // document.body.appendChild(yelpScript) //!
+    document.body.appendChild(yelpScript)
 }
 
 function updateMap(latitude,longitude){

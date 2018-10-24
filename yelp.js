@@ -31,7 +31,7 @@
                      for(let xx = 0;xx < Math.round(restaurant.rating);xx++){
                         restEl.children[2].innerHTML += "✪"
                      }
-                     const restPos = {lat:restaurant.latitude,lng:restaurant.longitude}
+                     const restPos = {lat:restaurant.coordinates.latitude,lng:restaurant.coordinates.longitude}
                      const restMapObj = allMaps["restaurant-map" + resti]
                      const marker = new google.maps.Marker({position: restPos, map: restMapObj.map});
                      const mapsUrl = `http://maps.google.com/maps/search/?api=1&z=15&query=${restPos.lat},${restPos.lng}&ll=${restPos.lat}+${restPos.lng}`

@@ -38,6 +38,12 @@ function loginUser(email,pswd){
             currentUserId = firebase.auth().currentUser.uid
             userDataRef = database.ref("users/" + currentUserId)
             configureObservers()
+            const oldButton = document.getElementById("reg-button");
+            const newButton = oldButton.cloneNode(true);
+            oldButton.parentNode.replaceChild(newButton, oldButton);
+            newButton.innerHTML = "Welcome, " + email + "!"
+            newButton.removeEventListener('click',()=>showPopUp(regPopUp))
+            logButton.style.display = "none"
             return
         }
         logErr = false
