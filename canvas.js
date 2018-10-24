@@ -1,7 +1,7 @@
 
 
 
-var options = ["Cook dinner", "Try again", "Eat out", "Wildcard", "Movies","Cook dinner", "Wildcard", "Eat out", "Be active", "Movies"];
+var options = ["Cook dinner", "Try again", "Eat out", "Wildcard", "Movies","Cook dinner", "Try again", "Eat out", "Wildcard", "Movies"];
 
 var startAngle = 0;
 var arc = Math.PI / (options.length / 2);
