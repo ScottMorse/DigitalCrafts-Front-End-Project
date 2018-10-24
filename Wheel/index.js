@@ -225,10 +225,10 @@ function displayPopup(selectedtoption){
 if (selectedtoption=="Movies"){
     showPopUp(moviePop)
 }
-if (selectedtoption=="Cook dinner"){
+if (selectedtoption=="Eat out"){
    showPopUp(restaurantPop)
 }
- if (selectedtoption=="Eat out"){
+ if (selectedtoption=="Cook dinner"){
   showPopUp(recipePop)
 }
 }

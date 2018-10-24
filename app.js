@@ -47,4 +47,4 @@
         //  var state = item.location.state;
         //  var zipcode = item.location.zip_code;
         //  var longitude = item.coordinates.longitude
-        //  var latitude = item.coordinates.latitudee;
+        //  var latitude = item.coordinates.latitude;

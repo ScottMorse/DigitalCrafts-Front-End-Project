@@ -1,7 +1,7 @@
 
 
 
-var options = ["Cook dinner", "Try again", "Eat out", "Wildcard", "Movies","Cook dinner", "Wildcard", "Eat out", "Be active", "Movies"];
+var options = ["Cook dinner", "Try again", "Eat out", "Wildcard", "Movies","Cook dinner", "Try again", "Eat out", "Wildcard", "Movies"];
 
 var startAngle = 0;
 var arc = Math.PI / (options.length / 2);
@@ -197,9 +197,41 @@ function stopRotateWheel() {
   //to show result
   //ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
 
+  displayPopup(text)
 
-  ctx.restore();
-}
+    ctx.restore();
+  }
+
+  function showPopUp(el){
+      const xButton = el.children[1].children[0]
+      var mask = el.children[0]
+      xButton.addEventListener('click',()=>hidePopUp(el))
+      mask.addEventListener('click',()=>hidePopUp(el))
+
+      el.style.display = 'flex'
+      setTimeout(()=>el.style.opacity = 1,100)
+  }
+
+  function hidePopUp(el){
+      el.style.opacity = 0
+      setTimeout(()=>el.style.display = 'none',800)
+  }
+
+
+  const moviePop = document.getElementById('movie-pop')
+  const restaurantPop = document.getElementById('restaurant-pop')
+  const recipePop = document.getElementById('recipe-pop')
+  function displayPopup(selectedtoption){
+  if (selectedtoption=="Movies"){
+      showPopUp(moviePop)
+  }
+  if (selectedtoption=="Eat out"){
+     showPopUp(restaurantPop)
+  }
+   if (selectedtoption=="Cook dinner"){
+    showPopUp(recipePop)
+  }
+  }
 
 function easeOut(t, b, c, d) {
   var ts = (t/=d)*t;
