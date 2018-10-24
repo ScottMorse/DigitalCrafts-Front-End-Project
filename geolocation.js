@@ -32,6 +32,6 @@ function initMap() {
 function updateMap(latitude,longitude){
     const pos = {lat: latitude, lng: longitude}
     map = new google.maps.Map(
-    document.getElementById('map'), {zoom: 14, center: pos});
+        document.getElementById('map'), {zoom: 14, center: pos});
     marker = new google.maps.Marker({position: pos, map: map});
 }
