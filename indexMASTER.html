@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Mali|Poppins:500" rel="stylesheet">
+        <link rel="stylesheet"  href="styles/canvas.css"/>
+        <link rel="stylesheet" media='screen and (min-width: 200px) and (max-width: 650px)' href='styles/moblie.css' />
+        <link rel="stylesheet" href="styles/popupstyle.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <title>RanDate</title>
+    </head>
+  
+    <body class="background">
+        <div id="loader"><div id="load-mask"></div>RanDate</div>
+        <div id="log-pop" class="pop-up square-pop">
+                <div class="bckg-mask"></div>
+                <div class="pop-main pop-center pop-height-lock">
+                    <div class="pop-x">X</div>
+                    <div class="pop-title">Login</div>
+                    <form id="log-form" class="fire-form">
+                        <input id="log-email" class="textBox emailBox" type="email" placeholder="example@email.com" required/>
+                        <input id="log-pswd" class="textBox pswdBox" type="password" placeholder="*******" required/>
+                        <input id="log-submit" class="submit-button" type="submit" value="Submit"/> 
+                    </form>
+                    <div id="log-err" class="fire-err"></div>
+                </div>
+        </div>
+        <div id="reg-pop" class="pop-up square-pop">
+            <div class="bckg-mask"></div>
+            <div class="pop-main pop-center pop-height-lock">
+                <div class="pop-x">X</div>
+                <div class="pop-title">Register</div>
+                <form id="reg-form" class="fire-form">
+                    <input id="reg-email" class="textBox emailBox" type="email" placeholder="example@email.com" required/>
+                    <input id="reg-pswd" class="textBox pswdBox" type="password" placeholder="*******" required/>
+                    <input id="reg-submit" class="submit-button" type="submit" value="Submit"/> 
+                </form>
+                <div id="reg-err" class="fire-err"></div>
+            </div>
+        </div>
+        <div id="movie-pop" class="pop-up full-pop">
+            <div class="bckg-mask"></div>
+            <div class="pop-main">
+                <div class="pop-x">X</div>
+                <div class="pop-title">Movie Night</div>
+                <div class="pop-subtitle">Hot movies showing near you:</div>
+                <div id="movie-prev" class="previous cont-control">Previous</div>
+                <div id="movie-next" class="next cont-control">Next</div>
+                <div id="example-movies" class="slider">
+                    <div id="movies" class="cont-wrap">
+                        <div id="movie-num" class="cont-num">1/5</div>
+                        <div id="movie1" class="movie content starting-content">
+                            <div class="movie-title cont-title"></div>
+                            <div class="movie-img cont-img"></div>
+                            <a class="movie-link cont-link" href="#">Get your tickets for now!</a>
+                            <div class="movie-theater">Theater:</div>
+                            <div id="movie-map1" class="movie-map cont-map"></div>
+                        </div>
+                        <div id="movie2" class="movie content">
+                            <div class="movie-title cont-title"></div>
+                            <div class="movie-img cont-img"></div>
+                            <a class="movie-link cont-link" href="#">Get your tickets for now!</a>
+                            <div class="movie-theater">Theater:</div>
+                            <div id="movie-map2" class="movie-map cont-map"></div>
+                        </div>
+                        <div id="movie3" class="movie content">
+                            <div class="movie-title cont-title"></div>
+                            <div class="movie-img cont-img"></div>
+                            <a class="movie-link cont-link" href="#">Get your tickets for now!</a>
+                            <div class="movie-theater">Theater:</div>
+                            <div id="movie-map3" class="movie-map cont-map"></div>
+                        </div>
+                        <div id="movie4" class="movie content">
+                            <div class="movie-title cont-title"></div>
+                            <div class="movie-img cont-img"></div>
+                            <a class="movie-link cont-link" href="#">Get your tickets for now!</a>
+                            <div class="movie-theater">Theater:</div>
+                            <div id="movie-map4" class="movie-map cont-map"></div>
+                        </div>
+                        <div id="movie5" class="movie content">
+                            <div class="movie-title cont-title"></div>
+                            <div class="movie-img cont-img"></div>
+                            <a class="movie-link cont-link" href="#">Get your tickets for now!</a>
+                            <div class="movie-theater">Theater:</div>
+                            <div id="movie-map5" class="movie-map cont-map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="restaurant-pop" class="pop-up full-pop">
+                <div class="bckg-mask"></div>
+                <div class="pop-main">
+                    <div class="pop-x">X</div>
+                    <div class="pop-title">A Nice Dinner</div>
+                    <div class="pop-subtitle">Restaurants near you:</div>
+                    <div id="restaurant-prev" class="previous cont-control">Previous</div>
+                    <div id="restaurant-next" class="next cont-control">Next</div>
+                    <div id="restaurants-wrap" class="slider">
+                        <div id="restaurants" class="cont-wrap">
+                            <div id="restaurant-num" class="cont-num">1/5</div>
+                            <div id="restaurant1" class="restaurant content starting-content">
+                                <div class="restaurant-title cont-title"></div>
+                                <div class="restaurant-img cont-img"></div>
+                                <div class="restaurant-rating"></div>
+                                <div id="restaurant-map1" class="restaurant-map cont-map"></div>
+                            </div>
+                            <div id="restaurant2" class="restaurant content">
+                                <div class="restaurant-title cont-title"></div>
+                                <div class="restaurant-img cont-img"></div>
+                                <div class="restaurant-rating"></div>
+                                <div id="restaurant-map2" class="restaurant-map cont-map"></div>
+                            </div>
+                            <div id="restaurant3" class="restaurant content">
+                                <div class="restaurant-title cont-title"></div>
+                                <div class="restaurant-img cont-img"></div>
+                                <div class="restaurant-rating"></div>
+                                <div id="restaurant-map3" class="restaurant-map cont-map"></div>
+                            </div>
+                            <div id="restaurant4" class="restaurant content">
+                                <div class="restaurant-title cont-title"></div>
+                                <div class="restaurant-img cont-img"></div>
+                                <div class="restaurant-rating"></div>
+                                <div id="restaurant-map4" class="restaurant-map cont-map"></div>
+                            </div>
+                            <div id="restaurant5" class="restaurant content">
+                                <div class="restaurant-title cont-title"></div>
+                                <div class="restaurant-img cont-img"></div>
+                                <div class="restaurant-rating"></div>
+                                <div id="restaurant-map5" class="restaurant-map cont-map"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div id="recipe-pop" class="pop-up full-pop">
+                <div class="bckg-mask"></div>
+                <div class="pop-main">
+                    <div class="pop-x">X</div>
+                    <div class="pop-title">Flex your chef skills!</div>
+                    <div id="recipe-prev" class="previous cont-control">Previous</div>
+                    <div id="recipe-next" class="next cont-control">Next</div>
+                    <div></div>
+                    <div id="example-recipes" class="slider">
+                        <div id="recipes" class="cont-wrap">
+                            <div id="recipe-num" class="cont-num">1/5</div>
+                            <div id="recipe1" class="recipe content starting-content">
+                                <div class="recipe-title cont-title"></div>
+                                <div class="recipe-img cont-img"></div>
+                                <a class="recipe-link cont-link" href="#">See the whole recipe!</a>
+                            </div>
+                            <div id="recipe2" class="recipe content">
+                                <div class="recipe-title cont-title"></div>
+                                <div class="recipe-img cont-img"></div>
+                                <a class="recipe-link cont-link" href="#">See the whole recipe!</a>
+                            </div>
+                            <div id="recipe3" class="recipe content">
+                                <div class="recipe-title cont-title"></div>
+                                <div class="recipe-img cont-img"></div>
+                                <a class="recipe-link cont-link" href="#">See the whole recipe!</a>
+                            </div>
+                            <div id="recipe4" class="recipe content">
+                                <div class="recipe-title cont-title"></div>
+                                <div class="recipe-img cont-img"></div>
+                                <a class="recipe-link cont-link" href="#">See the whole recipe!</a>
+                            </div>
+                            <div id="recipe5" class="recipe content">
+                                <div class="recipe-title cont-title"></div>
+                                <div class="recipe-img cont-img"></div>
+                                <a class="recipe-link cont-link" href="#">See the whole recipe!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <h1>RanDate</h1>
+        <button id="reg-button" class="fire-button">Register</button>
+        <button id="log-button" class="fire-button">Login</button>
+
+        <div id="TESTBUTTON" style="display:flex;flex-direction:column;width:80px;margin-top:10px">
+                <button id="check-restaurants">Check restaurants</button>
+                <button id="check-recipes">Check recipes</button>
+                <button id="check-movies">Check movies</button>
+        </div>
+
+        <button class="pulse-button" id='spin'></button>
+
+        <canvas id="canvas" ></canvas>
+
+
+
+        <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-database.js"></script>
+        <script>
+            var config = {
+            apiKey: "AIzaSyCdJT_SH9xknJyh3BEHten2g4pnkVJ1ieo",
+            authDomain: "dc-front-end-project.firebaseapp.com",
+            databaseURL: "https://dc-front-end-project.firebaseio.com",
+            projectId: "dc-front-end-project",
+            storageBucket: "dc-front-end-project.appspot.com",
+            messagingSenderId: "45275738743"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script src="googlemaps.js"></script>
+        <script src="geolocation.js"></script>
+        <script src="gracenote.js"></script>
+        <script src="canvas.js"></script>
+        <script src="popups.js"></script>
+        <script src="firebase_stuff.js"></script>
+        <script src="loadin.js"></script>
+        <script src="test.js"></script>
+    </body>
+
+</html>

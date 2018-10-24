@@ -1,38 +1,37 @@
-let userLat
-let userLon
+let map
+let marker
 
-const geoOptions = {
-    enableHighAccuracy: true, 
-    maximumAge        : 600000, 
-    timeout           : 10000,
+const allMapEls = Array.from(document.querySelectorAll('.cont-map'))
+
+let allMaps = {
+    "restaurant-map1": {hello:"hello"},
+    "restaurant-map2": {},
+    "restaurant-map3": {},
+    "restaurant-map4": {},
+    "restaurant-map5": {},
+    "movie-map1": {},
+    "movie-map2": {},
+    "movie-map3": {},
+    "movie-map4": {},
+    "movie-map5": {},
 }
 
-let watchID
-if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(geoSuccess,geoError,geoOptions)
-}
-else {
-    console.error('Geolocation is not available on this browser.')
-}
-
-let firstLoad = true
-function geoSuccess(position){
-    userLat = position.coords.latitude
-    userLon =  position.coords.longitude
-    if(firstLoad){
-        console.log("Geolocation success.")
-        console.log(userLat,userLon)
-        const script = document.createElement('script')
-        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBXLCcENFupNH9DkxvC7z43zqkjdp4QcLc&callback=initMap'
-        document.head.appendChild(script)
-    }
+function initMap() {
+    const userLoc = {lat: userLat, lng: userLon};
+    Object.keys(allMaps).forEach(mapKey => {
+        let map = new google.maps.Map(
+            document.getElementById(mapKey), {zoom: 12, center: userLoc});
+        allMaps[mapKey] = {map: map, marker: marker}
+    })
     getLocalTheaters()
-    firstLoad = false
+    const yelpScript = document.createElement('script')
+    yelpScript.src = 'yelp.js'
+    // document.body.appendChild(yelpScript) //!
 }
 
-function geoError(){
-    console.error("Geolocation error.")
-    if(userLat && userLon){
-        console.warn("Despite geolocation error, location data still available.")
-    }
+function updateMap(latitude,longitude){
+    const pos = {lat: latitude, lng: longitude}
+    map = new google.maps.Map(
+    document.getElementById('map'), {zoom: 14, center: pos});
+    marker = new google.maps.Marker({position: pos, map: map});
 }

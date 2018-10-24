@@ -1,0 +1,113 @@
+
+
+
+body{
+  margin: 0;
+  background-color: rgb(250, 175, 156);
+}
+
+#loader{
+  font-size: 100px;
+  font-family: Lobster;
+  color: rgb(151, 0, 33);
+  background-color: rgb(250, 175, 156);
+  z-index: 10;
+  transition: opacity 1s ease;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#load-mask{
+  z-index: 12;
+  transition: transform 1s ease;
+  transform: translateX(0);
+  background-color: rgb(250, 175, 156);
+  width: inherit;
+  height: inherit;
+  position: absolute;
+}
+
+h1 {
+  font-family: Lobster;
+  font-size: 50px;
+  margin: 0 0 0 5px;
+  color: rgb(151, 0, 33);
+}
+
+.fire-button{
+  background-color: rgb(151, 0, 33);
+  color: whitesmoke;
+  border-radius: 10% / 20%;
+  margin-left: 10px;
+  border: none;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.2)
+}
+
+.fire-button:hover{
+  cursor: pointer;
+}
+
+/*
+.background{
+background-image: url('242.jpg');
+background-repeat: repeat;
+background-size: contain;
+
+}*/
+
+
+#canvas {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+
+}
+
+
+
+
+
+
+
+.pulse-button {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 130px;
+  height: 130px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
+  border-radius: 50%;
+  background-color: rgb(255, 254, 226, .4);
+  background-size:cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+.pulse-button:hover
+{
+  -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
+}
+
+.pulse-button:focus{
+  outline: none;
+
+}
+
+@-webkit-keyframes pulse {to {box-shadow: 0 0 0 45px rgb(255, 254, 226, .4);}}
+@-moz-keyframes pulse {to {box-shadow: 0 0 0 45px rgb(255, 254, 226, .4);}}
+@-ms-keyframes pulse {to {box-shadow: 0 0 0 45px rgb(255, 254, 226, .4);}}
+@keyframes pulse {to {box-shadow: 0 0 0 45px rgb(255, 254, 226, .4);}}
