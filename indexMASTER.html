@@ -7,6 +7,7 @@
         <link rel="stylesheet"  href="styles/canvas.css"/>
         <link rel="stylesheet" media='screen and (min-width: 200px) and (max-width: 650px)' href='styles/moblie.css' />
         <link rel="stylesheet" href="styles/popupstyle.css"/>
+        <link rel="stylesheet" href="styles/recipes.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <title>RanDate</title>
@@ -146,6 +147,12 @@
                     <div id="example-recipes" class="slider">
                         <div id="recipes" class="cont-wrap">
                             <div id="recipe-num" class="cont-num">1/5</div>
+                            <div id="ingredient-selector">
+                                <form id="ingredientForm">
+                                    <input id="ingredientTextBox" type="text" name="" value="" placeholder="Enter your favorite food!">
+                                    <input id="ingredientSubmit" type="submit" name="" value="submit">
+                                </form>
+                            </div>
                             <div id="recipe1" class="recipe content starting-content">
                                 <div class="recipe-title cont-title"></div>
                                 <div class="recipe-img cont-img"></div>
@@ -212,6 +219,7 @@
         <script src="canvas.js"></script>
         <script src="popups.js"></script>
         <script src="firebase_stuff.js"></script>
+        <script src="recipes.js"></script>
         <script src="loadin.js"></script>
         <script src="test.js"></script>
     </body>
