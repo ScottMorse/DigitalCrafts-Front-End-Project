@@ -2,8 +2,8 @@ let userLat
 let userLon
 
 const geoOptions = {
-    enableHighAccuracy: true, 
-    maximumAge        : 600000, 
+    enableHighAccuracy: true,
+    maximumAge        : 600000,
     timeout           : 10000,
 }
 
