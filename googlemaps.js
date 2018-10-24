@@ -20,20 +20,13 @@ function initMap() {
     const userLoc = {lat: userLat, lng: userLon};
     Object.keys(allMaps).forEach(mapKey => {
         let map = new google.maps.Map(
-            document.getElementById(mapKey), {zoom: 12, center: userLoc});
+            document.getElementById(mapKey), {zoom: 18, center: userLoc});
         allMaps[mapKey] = {map: map, marker: marker}
     })
     getLocalTheaters()
     const yelpScript = document.createElement('script')
     yelpScript.src = 'yelp.js'
     document.body.appendChild(yelpScript)
-}
-
-function updateMap(latitude,longitude){
-    const pos = {lat: latitude, lng: longitude}
-    map = new google.maps.Map(
-    document.getElementById('map'), {zoom: 14, center: pos});
-    marker = new google.maps.Marker({position: pos, map: map});
 }
 
 function openTab(url){
