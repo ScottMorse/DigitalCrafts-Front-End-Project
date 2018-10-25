@@ -30,7 +30,7 @@ function loginUser(email,pswd){
     firebase.auth().signInWithEmailAndPassword(email,pswd).catch(function(error) {
         const errorCode = error.code;
         logErrMsg = error.message;
-        logErrEl = logErrMsg
+        logErrEl.innerHTML = logErrMsg
         logErr = true
     })
     .then(response => {
@@ -40,19 +40,21 @@ function loginUser(email,pswd){
             document.body.appendChild(newScript)
             hidePopUp(document.getElementById('log-pop'))
             currentUserId = firebase.auth().currentUser.uid
+            database.ref('users').set(currentUserId)
             userDataRef = database.ref("users/" + currentUserId)
-            configureObservers()
             const oldButton = document.getElementById("reg-button");
             const newButton = oldButton.cloneNode(true);
             oldButton.parentNode.replaceChild(newButton, oldButton);
             newButton.innerHTML = "Welcome, " + email + "!"
             newButton.removeEventListener('click',()=>showPopUp(regPopUp))
             logButton.style.display = "none"
+            configureObservers()
             return
         }
         logErr = false
     })
 }
+
 
 function loginByForm(e){
     e.preventDefault()
@@ -64,15 +66,15 @@ function registerByForm(e){
     registerUser(this.children[0].value,this.children[1].value)
 }
 
+let userFavorites
+let s = 0
 function configureObservers(){
     userDataRef.on('value', snapshot => {
         if(s != 0)
         {
             console.log('Value changed to user\'s stores.')
         }
-        snapshot.forEach(childSnapShot => {
-            
-        })
+        userFavorites = snapshot.val()
         s++
     })
 }
