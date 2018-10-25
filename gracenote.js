@@ -48,7 +48,9 @@ function getLocalTheaters(){
             //         movieMapObj.marker.position = theaterPos
             //     })
             movieEl.children[0].innerHTML = showing.title
-            movieEl.children[1].style.backgroundImage = 'url(' + 'http://developer.tmsimg.com/123456?&api_key=syh7qykyctv94cu3rybjna7b'.replace("123456",showing.preferredImage.uri) + ')'
+            setTimeout(()=>{
+                movieEl.children[1].style.backgroundImage = 'url(' + 'http://developer.tmsimg.com/123456?&api_key=syh7qykyctv94cu3rybjna7b'.replace("123456",showing.preferredImage.uri) + ')'
+            },mi * 600)
             const movieMapObj = allMaps["movie-map" + (mi + 1)]
             const theaterPos = {lat:30,lng:30} //!CHANGE TO DYNAMIC
             movieMapObj.map.setCenter(theaterPos)
