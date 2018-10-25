@@ -28,10 +28,10 @@
                      restaurant.masterKey = resti - 1
                      masterObject.restaurant.push(restaurant)
                      const restEl = document.getElementById("restaurant" + resti)
-                     restEl.children[0].innerHTML = restaurant.name
-                     restEl.children[1].style.backgroundImage = 'url(' + restaurant.image_url + ')'
+                     restEl.children[1].innerHTML = restaurant.name
+                     restEl.children[2].style.backgroundImage = 'url(' + restaurant.image_url + ')'
                      for(let xx = 0;xx < Math.round(restaurant.rating);xx++){
-                        restEl.children[2].innerHTML += "✪"
+                        restEl.children[3].innerHTML += "✪"
                      }
                      const restPos = {lat:restaurant.coordinates.latitude,lng:restaurant.coordinates.longitude}
                      const restMapObj = allMaps["restaurant-map" + resti]

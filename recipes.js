@@ -35,9 +35,9 @@ function getUserIngredient(e){
           const recipeObj = result.hits[ri - 1]
           recipeObj.masterKey = ri - 1
           masterObject.recipe.push(recipeObj)
-          recipeEl.children[0].innerHTML = recipeObj.recipe.label
-          recipeEl.children[1].style.backgroundImage = 'url(' + recipeObj.recipe.image + ')'
-          recipeEl.children[2].href = recipeObj.recipe.url
+          recipeEl.children[1].innerHTML = recipeObj.recipe.label
+          recipeEl.children[2].style.backgroundImage = 'url(' + recipeObj.recipe.image + ')'
+          recipeEl.children[3].href = recipeObj.recipe.url
           ri ++
       })
       console.log(masterObject)
