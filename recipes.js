@@ -33,11 +33,14 @@ function getUserIngredient(e){
       let ri = 1
       recipeEls.forEach(recipeEl => {
           const recipeObj = result.hits[ri - 1]
+          recipeObj.masterKey = ri - 1
+          masterObject.recipe.push(recipeObj)
           recipeEl.children[0].innerHTML = recipeObj.recipe.label
           recipeEl.children[1].style.backgroundImage = 'url(' + recipeObj.recipe.image + ')'
           recipeEl.children[2].href = recipeObj.recipe.url
           ri ++
       })
+      console.log(masterObject)
    })
 }
 

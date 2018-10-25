@@ -25,6 +25,8 @@
                   });
                   let resti = 1
                   restaurantResults.slice(0,5).forEach(restaurant => {
+                     restaurant.masterKey = resti - 1
+                     masterObject.restaurant.push(restaurant)
                      const restEl = document.getElementById("restaurant" + resti)
                      restEl.children[0].innerHTML = restaurant.name
                      restEl.children[1].style.backgroundImage = 'url(' + restaurant.image_url + ')'
@@ -40,6 +42,7 @@
                      resti++
                   })
                   console.log(restaurantResults)
+                  console.log(masterObject)
                 } else {
                     // If our results are 0; no businesses were returned by the JSON therefor we display on the page no results were found
                     console.log("No restaurant results.")

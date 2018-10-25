@@ -31,6 +31,8 @@ function getLocalTheaters(){
         let goodShowtime
         movieEls.forEach(movieEl => {
             const showing = showings[mi]
+            showing.masterKey = mi
+            masterObject.movie.push(showing)
             showing.showtimes.forEach(showtime => {
                 const showtimeDate = Date.parse(showtime.dateTime)
                 if(showtimeDate - today.getTime() >= 36000){
@@ -61,6 +63,7 @@ function getLocalTheaters(){
             // movieEl.children[3].innerHTML = "Theater: " + goodShowtime.theatre.name
             mi++
         })
+        console.log(masterObject)
     })
 }
 
