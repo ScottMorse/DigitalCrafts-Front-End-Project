@@ -7,11 +7,26 @@
         <link rel="stylesheet"  href="styles/canvas.css"/>
         <link rel="stylesheet" media='screen and (min-width: 200px) and (max-width: 650px)' href='styles/moblie.css' />
         <link rel="stylesheet" href="styles/popupstyle.css"/>
+        <link rel="stylesheet" href="styles/recipes.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <title>RanDate</title>
     </head>
+    <style>
+        #wild-text{
+          font-family: Mali, monospace;
+          font-size: 20px;
+          color: whitesmoke;
+          width: 35%;
+          text-align: center;
+          padding-top: 6%;
 
+
+        }
+        #wild-title{
+          margin-top: 5%;
+        }
+        </style>
     <body class="background">
         <div id="loader"><div id="load-mask"></div>RanDate</div>
         <div id="log-pop" class="pop-up square-pop">
@@ -40,6 +55,18 @@
                 <div id="reg-err" class="fire-err"></div>
             </div>
         </div>
+
+        <div id="wild-pop" class="pop-up full-pop">
+            <div class="bckg-mask"></div>
+            <div id="wild-pop-main" class="pop-main">
+                <div class="pop-x">X</div>
+                <div id="wild-title" class="pop-title">Wildcard</div>
+                <div class="pop-subtitle">Y'all should...</div>
+                <div id="wild-text"></div>
+                </div></div>
+
+
+
         <div id="movie-pop" class="pop-up full-pop">
             <div class="bckg-mask"></div>
             <div class="pop-main">
@@ -146,30 +173,36 @@
                     <div id="example-recipes" class="slider">
                         <div id="recipes" class="cont-wrap">
                             <div id="recipe-num" class="cont-num">1/5</div>
+                            <div id="ingredient-selector">
+                                <form id="ingredientForm">
+                                    <input id="ingredientTextBox" type="text" name="" value="" placeholder="Enter a food you like!" required>
+                                    <input id="ingredientSubmit" type="submit" name="" value="Enter">
+                                </form>
+                            </div>
                             <div id="recipe1" class="recipe content starting-content">
                                 <div class="recipe-title cont-title"></div>
                                 <div class="recipe-img cont-img"></div>
-                                <a class="recipe-link cont-link" href="#">See the whole recipe!</a>
+                                <a class="recipe-link cont-link" noopener target="_blank" href="#">See the whole recipe!</a>
                             </div>
                             <div id="recipe2" class="recipe content">
                                 <div class="recipe-title cont-title"></div>
                                 <div class="recipe-img cont-img"></div>
-                                <a class="recipe-link cont-link" href="#">See the whole recipe!</a>
+                                <a class="recipe-link cont-link" noopener target="_blank" href="#">See the whole recipe!</a>
                             </div>
                             <div id="recipe3" class="recipe content">
                                 <div class="recipe-title cont-title"></div>
                                 <div class="recipe-img cont-img"></div>
-                                <a class="recipe-link cont-link" href="#">See the whole recipe!</a>
+                                <a class="recipe-link cont-link" noopener target="_blank" href="#">See the whole recipe!</a>
                             </div>
                             <div id="recipe4" class="recipe content">
                                 <div class="recipe-title cont-title"></div>
                                 <div class="recipe-img cont-img"></div>
-                                <a class="recipe-link cont-link" href="#">See the whole recipe!</a>
+                                <a class="recipe-link cont-link" noopener target="_blank" href="#">See the whole recipe!</a>
                             </div>
                             <div id="recipe5" class="recipe content">
                                 <div class="recipe-title cont-title"></div>
                                 <div class="recipe-img cont-img"></div>
-                                <a class="recipe-link cont-link" href="#">See the whole recipe!</a>
+                                <a class="recipe-link cont-link" noopener target="_blank" href="#">See the whole recipe!</a>
                             </div>
                         </div>
                     </div>
@@ -212,6 +245,7 @@
         <script src="canvas.js"></script>
         <script src="popups.js"></script>
         <script src="firebase_stuff.js"></script>
+        <script src="recipes.js"></script>
         <script src="loadin.js"></script>
         <script src="test.js"></script>
     </body>
