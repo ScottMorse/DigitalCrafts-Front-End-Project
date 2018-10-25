@@ -1,3 +1,14 @@
 .save{
     display: none;
+    color: whitesmoke;
+    font-family: sans-serif;
+    background-color: rgb(250, 175, 156);
+    text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5% / 10%;
+}
+
+.save:hover{
+    cursor: pointer;
 }

@@ -26,6 +26,9 @@ function hidePopUp(el){
 
 let contentIndices = {"movie":1,"recipe":1,"restaurant":1}
 function flipThroughContent(){
+    if(currentUserId){
+        document.getElementById('recipe-save-0').style.display = 'block'
+    }
     const splitId = this.id.split("-")
     const contentType = splitId[0]
     

@@ -40,7 +40,6 @@ function loginUser(email,pswd){
             document.body.appendChild(newScript)
             hidePopUp(document.getElementById('log-pop'))
             currentUserId = firebase.auth().currentUser.uid
-            database.ref('users').set(currentUserId)
             userDataRef = database.ref("users/" + currentUserId)
             const oldButton = document.getElementById("reg-button");
             const newButton = oldButton.cloneNode(true);
@@ -67,6 +66,27 @@ function registerByForm(e){
 }
 
 let userFavorites
+function updateFavorites(){
+    //!Clear menu innerHTMLs
+    if(userFavorites){
+        const favMovies = userFavorites.movies || {}
+        const favRests = userFavorites.restaurants || {}
+        const favRecipes = userFavorites.recipes || {}
+        Object.keys(favMovies).forEach(movieFavKey => {
+            const movieFav = favMovies[movieFavKey]
+            // add to HMTL
+        })
+        Object.keys(favRests).forEach(restFavKey => {
+            const restFav = favRests[restFavKey]
+            //do stuff
+        })
+        Object.keys(favRecipes).forEach(recipeFavKey => {
+            const recipeFav = favMovies[recipeFavKey]
+            //do stuff
+        })
+    }
+}
+
 let s = 0
 function configureObservers(){
     userDataRef.on('value', snapshot => {
@@ -75,6 +95,7 @@ function configureObservers(){
             console.log('Value changed to user\'s stores.')
         }
         userFavorites = snapshot.val()
+        updateFavorites()
         s++
     })
 }

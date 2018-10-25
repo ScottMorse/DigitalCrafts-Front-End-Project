@@ -1,17 +1,4 @@
-const saveButtons = Array.from(document.querySelectorAll('.save'))
 
-function updateFavorites(){
-    const favMovies = userDataRef.movies
-    userFavorites.movie.forEach(movieFav => {
-        //do stuff
-    })
-    userFavorites.restaurant.forEach(restaurantFav => {
-        //do stuff
-    })
-    userFavorites.recipe.forEach(recipeFav => {
-        //do stuff
-    })
-}
 
 function addFavorite(){
     const splitId = this.id.split('-')
@@ -30,13 +17,23 @@ function addFavorite(){
     }
     else if(favType == "recipe"){
         name = fetchedObj.recipe.label
+       Object.keys(fetchedObj.recipe.totalNutrients).forEach(key => {
+            if(key.includes(".")){
+                keyVal = fetchedObj.recipe.totalNutrients[key]
+                delete fetchedObj.recipe.totalNutrients[key]
+                newKey = key.replace("."," ")
+                fetchedObj.recipe.totalNutrients[newKey] = keyVal
+            }
+        })
         category = "recipes"
     }
     userDataRef.child(category).child(name).set(fetchedObj)
-    updateFavorites()
 }
 
+const saveButtons = Array.from(document.querySelectorAll('.save'))
 saveButtons.forEach(saveButton => {
     saveButton.style.display = 'block'
     saveButton.addEventListener('click',addFavorite)
 })
+
+document.getElementById('recipe-save-0').style.display = 'none'
