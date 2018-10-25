@@ -1,5 +1,6 @@
 let userLat
 let userLon
+let masterObject = {"movie":[],"restaurant":[],"recipe":[]}
 
 const geoOptions = {
     enableHighAccuracy: true,

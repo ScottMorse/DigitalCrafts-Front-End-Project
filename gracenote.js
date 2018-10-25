@@ -31,6 +31,8 @@ function getLocalTheaters(){
         let goodShowtime
         movieEls.forEach(movieEl => {
             const showing = showings[mi]
+            showing.masterKey = mi
+            masterObject.movie.push(showing)
             showing.showtimes.forEach(showtime => {
                 const showtimeDate = Date.parse(showtime.dateTime)
                 if(showtimeDate - today.getTime() >= 36000){
@@ -47,18 +49,21 @@ function getLocalTheaters(){
             //         movieMapObj.map.center = theaterPos
             //         movieMapObj.marker.position = theaterPos
             //     })
-            movieEl.children[0].innerHTML = showing.title
-            movieEl.children[1].style.backgroundImage = 'url(' + 'http://developer.tmsimg.com/123456?&api_key=syh7qykyctv94cu3rybjna7b'.replace("123456",showing.preferredImage.uri) + ')'
+            movieEl.children[1].innerHTML = showing.title
+            setTimeout(()=>{
+                movieEl.children[2].style.backgroundImage = 'url(' + 'http://developer.tmsimg.com/123456?&api_key=syh7qykyctv94cu3rybjna7b'.replace("123456",showing.preferredImage.uri) + ')'
+            },mi * 600)
             const movieMapObj = allMaps["movie-map" + (mi + 1)]
             const theaterPos = {lat:30,lng:30} //!CHANGE TO DYNAMIC
             movieMapObj.map.setCenter(theaterPos)
             const marker = new google.maps.Marker({position: theaterPos, map: movieMapObj.map});
             const theatUrl = `http://maps.google.com/maps/search/?api=1&z=15&query=${theaterPos.lat},${theaterPos.lng}&ll=${theaterPos.lat}+${theaterPos.lng}`
             marker.addListener('click',()=>openTab(theatUrl))
-            // movieEl.children[2].href = goodShowtime.ticketURI
-            // movieEl.children[3].innerHTML = "Theater: " + goodShowtime.theatre.name
+            // movieEl.children[3].href = goodShowtime.ticketURI
+            // movieEl.children[4].innerHTML = "Theater: " + goodShowtime.theatre.name
             mi++
         })
+        console.log(masterObject)
     })
 }
 

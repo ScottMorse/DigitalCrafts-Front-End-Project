@@ -12,7 +12,20 @@
 
         <title>RanDate</title>
     </head>
+    <style>
+        #wild-text{
+          font-family: Mali, monospace;
+          font-size: 20px;
+          color: whitesmoke;
+          width: 300px;
+          text-align: center;
+          padding-top: 20px;
 
+        }
+        #wild-title{
+          margin-top: 100px;
+        }
+        </style>
     <body class="background">
         <div id="loader"><div id="load-mask"></div>RanDate</div>
         <div id="log-pop" class="pop-up square-pop">
@@ -41,6 +54,18 @@
                 <div id="reg-err" class="fire-err"></div>
             </div>
         </div>
+
+        <div id="wild-pop" class="pop-up full-pop">
+            <div class="bckg-mask"></div>
+            <div id="wild-pop-main" class="pop-main">
+                <div class="pop-x">X</div>
+                <div id="wild-title" class="pop-title">Wildcard</div>
+                <div class="pop-subtitle">Y'all should...</div>
+                <div id="wild-text"></div>
+                </div></div>
+
+
+
         <div id="movie-pop" class="pop-up full-pop">
             <div class="bckg-mask"></div>
             <div class="pop-main">
@@ -53,6 +78,7 @@
                     <div id="movies" class="cont-wrap">
                         <div id="movie-num" class="cont-num">1/5</div>
                         <div id="movie1" class="movie content starting-content">
+                            <div id="movie-save-0" class="save">☆Favorite</div>
                             <div class="movie-title cont-title"></div>
                             <div class="movie-img cont-img"></div>
                             <a class="movie-link cont-link" href="#">Get your tickets for now!</a>
@@ -60,6 +86,7 @@
                             <div id="movie-map1" class="movie-map cont-map"></div>
                         </div>
                         <div id="movie2" class="movie content">
+                            <div id="movie-save-1" class="save">☆Favorite</div>
                             <div class="movie-title cont-title"></div>
                             <div class="movie-img cont-img"></div>
                             <a class="movie-link cont-link" href="#">Get your tickets for now!</a>
@@ -67,6 +94,7 @@
                             <div id="movie-map2" class="movie-map cont-map"></div>
                         </div>
                         <div id="movie3" class="movie content">
+                            <div id="movie-save-2" class="save">☆Favorite</div>
                             <div class="movie-title cont-title"></div>
                             <div class="movie-img cont-img"></div>
                             <a class="movie-link cont-link" href="#">Get your tickets for now!</a>
@@ -74,6 +102,7 @@
                             <div id="movie-map3" class="movie-map cont-map"></div>
                         </div>
                         <div id="movie4" class="movie content">
+                            <div id="movie-save-3" class="save">☆Favorite</div>
                             <div class="movie-title cont-title"></div>
                             <div class="movie-img cont-img"></div>
                             <a class="movie-link cont-link" href="#">Get your tickets for now!</a>
@@ -81,6 +110,7 @@
                             <div id="movie-map4" class="movie-map cont-map"></div>
                         </div>
                         <div id="movie5" class="movie content">
+                            <div id="movie-save-4" class="save">☆Favorite</div>
                             <div class="movie-title cont-title"></div>
                             <div class="movie-img cont-img"></div>
                             <a class="movie-link cont-link" href="#">Get your tickets for now!</a>
@@ -103,30 +133,35 @@
                         <div id="restaurants" class="cont-wrap">
                             <div id="restaurant-num" class="cont-num">1/5</div>
                             <div id="restaurant1" class="restaurant content starting-content">
+                                <div id="restaurant-save-0" class="save">☆Favorite</div>
                                 <div class="restaurant-title cont-title"></div>
                                 <div class="restaurant-img cont-img"></div>
                                 <div class="restaurant-rating"></div>
                                 <div id="restaurant-map1" class="restaurant-map cont-map"></div>
                             </div>
                             <div id="restaurant2" class="restaurant content">
+                                <div id="restaurant-save-1" class="save">☆Favorite</div>
                                 <div class="restaurant-title cont-title"></div>
                                 <div class="restaurant-img cont-img"></div>
                                 <div class="restaurant-rating"></div>
                                 <div id="restaurant-map2" class="restaurant-map cont-map"></div>
                             </div>
                             <div id="restaurant3" class="restaurant content">
+                                <div id="restaurant-save-2" class="save">☆Favorite</div>
                                 <div class="restaurant-title cont-title"></div>
                                 <div class="restaurant-img cont-img"></div>
                                 <div class="restaurant-rating"></div>
                                 <div id="restaurant-map3" class="restaurant-map cont-map"></div>
                             </div>
                             <div id="restaurant4" class="restaurant content">
+                                <div id="restaurant-save-3" class="save">☆Favorite</div>
                                 <div class="restaurant-title cont-title"></div>
                                 <div class="restaurant-img cont-img"></div>
                                 <div class="restaurant-rating"></div>
                                 <div id="restaurant-map4" class="restaurant-map cont-map"></div>
                             </div>
                             <div id="restaurant5" class="restaurant content">
+                                <div id="restaurant-save-4" class="save">☆Favorite</div>
                                 <div class="restaurant-title cont-title"></div>
                                 <div class="restaurant-img cont-img"></div>
                                 <div class="restaurant-rating"></div>
@@ -154,29 +189,34 @@
                                 </form>
                             </div>
                             <div id="recipe1" class="recipe content starting-content">
+                                <div id="recipe-save-0" class="save">☆Favorite</div>
                                 <div class="recipe-title cont-title"></div>
                                 <div class="recipe-img cont-img"></div>
-                                <a class="recipe-link cont-link" target="_blank" href="#">See the whole recipe!</a>
+                                <a class="recipe-link cont-link" noopener target="_blank" href="#">See the whole recipe!</a>
                             </div>
                             <div id="recipe2" class="recipe content">
+                                <div id="recipe-save-1" class="save">☆Favorite</div>
                                 <div class="recipe-title cont-title"></div>
                                 <div class="recipe-img cont-img"></div>
-                                <a class="recipe-link cont-link" target="_blank" href="#">See the whole recipe!</a>
+                                <a class="recipe-link cont-link" noopener target="_blank" href="#">See the whole recipe!</a>
                             </div>
                             <div id="recipe3" class="recipe content">
+                                <div id="recipe-save-2" class="save">☆Favorite</div>
                                 <div class="recipe-title cont-title"></div>
                                 <div class="recipe-img cont-img"></div>
-                                <a class="recipe-link cont-link" target="_blank" href="#">See the whole recipe!</a>
+                                <a class="recipe-link cont-link" noopener target="_blank" href="#">See the whole recipe!</a>
                             </div>
                             <div id="recipe4" class="recipe content">
+                                <div id="recipe-save-3" class="save">☆Favorite</div>
                                 <div class="recipe-title cont-title"></div>
                                 <div class="recipe-img cont-img"></div>
-                                <a class="recipe-link cont-link" target="_blank" href="#">See the whole recipe!</a>
+                                <a class="recipe-link cont-link" noopener target="_blank" href="#">See the whole recipe!</a>
                             </div>
                             <div id="recipe5" class="recipe content">
+                                <div id="recipe-save-4" class="save">☆Favorite</div>
                                 <div class="recipe-title cont-title"></div>
                                 <div class="recipe-img cont-img"></div>
-                                <a class="recipe-link cont-link" target="_blank" href="#">See the whole recipe!</a>
+                                <a class="recipe-link cont-link" noopener target="_blank" href="#">See the whole recipe!</a>
                             </div>
                         </div>
                     </div>

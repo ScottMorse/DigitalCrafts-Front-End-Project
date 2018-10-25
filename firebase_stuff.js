@@ -19,6 +19,7 @@ function registerUser(email,pswd){
             loginUser(email,pswd)
             hidePopUp(document.getElementById('reg-pop'))
         }
+        regErr = false
     })
 }
 
@@ -34,6 +35,9 @@ function loginUser(email,pswd){
     })
     .then(response => {
         if(!logErr){
+            const newScript = document.createElement('script')
+            newScript.src = 'favorites.js'
+            document.body.appendChild(newScript)
             hidePopUp(document.getElementById('log-pop'))
             currentUserId = firebase.auth().currentUser.uid
             userDataRef = database.ref("users/" + currentUserId)
