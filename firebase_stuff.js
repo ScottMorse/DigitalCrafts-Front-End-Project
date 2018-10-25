@@ -19,6 +19,7 @@ function registerUser(email,pswd){
             loginUser(email,pswd)
             hidePopUp(document.getElementById('reg-pop'))
         }
+        regErr = false
     })
 }
 
