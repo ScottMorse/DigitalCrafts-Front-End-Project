@@ -66,8 +66,12 @@ function registerByForm(e){
 }
 
 let userFavorites
+const wordRegex = new RegExp(/\b[A-Za-z0-9]+\b/,'g')
+const restMenu = document.getElementById('restaurant-menu')
+const recipeMenu = document.getElementById('recipe-menu')
+const movieMenu = document.getElementById('movie-menu')
 function updateFavorites(){
-    //!Clear menu innerHTMLs
+    restMenu.innerHTML = recipeMenu.innerHTML = movieMenu.innerHTML = ""
     if(userFavorites){
         const favMovies = userFavorites.movies || {}
         const favRests = userFavorites.restaurants || {}

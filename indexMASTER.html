@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Lobster|Mali|Poppins:500" rel="stylesheet">
         <link rel="stylesheet"  href="styles/canvas.css"/>
         <link rel="stylesheet" media='screen and (min-width: 200px) and (max-width: 650px)' href='styles/mobile.css' />
@@ -12,7 +13,6 @@
         <link rel="stylesheet" href="styles/menu.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <title>Pick & Choose</title>
     </head>
     <body class="background">
@@ -215,6 +215,40 @@
         <h1>Pick & Choose</h1>
         <button id="reg-button" class="fire-button">Register</button>
         <button id="log-button" class="fire-button">Login</button>
+        <div id="favorites-menu-wrap">
+            <div id="favorites-menu" class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">My Favorites
+                <span class="caret"></span></button>
+
+                <ul class="dropdown-menu">
+
+                    <ul class="dropdown-submenu">
+                        <a class="test" tabindex="0" href="#">Restaurants<span class="caret"></span></a>
+                        <ul id="restaurant-menu" class="dropdown-menu">
+                            <li><a tabindex="0" href="#">2nd level dropdown</a></li>
+                            <li><a tabindex="0" href="#">2nd level dropdown</a></li></li>
+                    </ul></ul>
+
+                            
+                    <ul class="dropdown-submenu">
+                        <a class="test" tabindex="0" href="#">Recipes<span class="caret"></span></a>
+                        <ul id="recipe-menu" class="dropdown-menu">
+                            <li><a tabindex="0" href="#">2nd level dropdown</a></li>
+                            <li><a tabindex="0" href="#">2nd level dropdown</a></li></li>
+                    </ul></ul>
+                    
+                    <ul class="dropdown-submenu">
+                        <a class="test" tabindex="0" href="#">Movies<span class="caret"></span></a>
+                        <ul id="movie-menu" class="dropdown-menu">
+                            <li><a tabindex="0" href="#">2nd level dropdown</a></li>
+                            <li><a tabindex="0" href="#">2nd level dropdown</a></li></li>
+                    </ul></ul>
+
+                    </ul></ul>
+
+                </ul>  
+            </div>
+        </div>
 
         <div id="TESTBUTTON" style="display:flex;flex-direction:column;width:80px;margin-top:10px">
                 <button id="check-restaurants">Check restaurants</button>
