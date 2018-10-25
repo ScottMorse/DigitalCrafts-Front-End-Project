@@ -9,6 +9,7 @@ function addFavorite(){
     let category
     if(favType == "movie"){
         name = fetchedObj.title
+        fetchedObj.masterLink = 
         category = "movies"
     }
     else if(favType == "restaurant"){
