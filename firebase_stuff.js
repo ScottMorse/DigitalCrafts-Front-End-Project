@@ -26,6 +26,7 @@ function registerUser(email,pswd){
 let logErrMsg
 let logErr = false
 const logErrEl = document.getElementById('log-err')
+const favMenu = document.getElementById('favorites-menu-wrap')
 function loginUser(email,pswd){
     firebase.auth().signInWithEmailAndPassword(email,pswd).catch(function(error) {
         const errorCode = error.code;
@@ -35,6 +36,8 @@ function loginUser(email,pswd){
     })
     .then(response => {
         if(!logErr){
+            favMenu.style.display = 'unset'
+            setTimeout(()=>favMenu.style.opacity = 1,100)
             const newScript = document.createElement('script')
             newScript.src = 'favorites.js'
             document.body.appendChild(newScript)
@@ -71,22 +74,45 @@ const restMenu = document.getElementById('restaurant-menu')
 const recipeMenu = document.getElementById('recipe-menu')
 const movieMenu = document.getElementById('movie-menu')
 function updateFavorites(){
+    console.log(userFavorites)
     restMenu.innerHTML = recipeMenu.innerHTML = movieMenu.innerHTML = ""
     if(userFavorites){
         const favMovies = userFavorites.movies || {}
         const favRests = userFavorites.restaurants || {}
         const favRecipes = userFavorites.recipes || {}
+        if(favMovies != "")
         Object.keys(favMovies).forEach(movieFavKey => {
             const movieFav = favMovies[movieFavKey]
-            // add to HMTL
+            const newLi = document.createElement('li')
+            const newA = document.createElement('a')
+            newA.target = "_blank"
+            newA.tabIndex = '0'
+            newLi.appendChild(newA)
+            newA.innerHTML = movieFav.title
+            newA.href = movieFav.officialUrl
+            movieMenu.appendChild(newLi)
         })
         Object.keys(favRests).forEach(restFavKey => {
             const restFav = favRests[restFavKey]
-            //do stuff
+            const newLi = document.createElement('li')
+            const newA = document.createElement('a')
+            newA.target = "_blank"
+            newA.tabIndex = '0'
+            newLi.appendChild(newA)
+            newA.innerHTML = restFav.name
+            newA.href = "http://maps.google.com/maps/search/?api=1&z=15&query=" + restFav.name.match(wordRegex).join('+')
+            restMenu.appendChild(newLi)
         })
         Object.keys(favRecipes).forEach(recipeFavKey => {
-            const recipeFav = favMovies[recipeFavKey]
-            //do stuff
+            const recipeFav = favRecipes[recipeFavKey]
+            const newLi = document.createElement('li')
+            const newA = document.createElement('a')
+            newA.target = "_blank"
+            newA.tabIndex = '0'
+            newLi.appendChild(newA)
+            newA.innerHTML = recipeFav.recipe.label
+            newA.href = recipeFav.recipe.url
+            recipeMenu.appendChild(newLi)
         })
     }
 }

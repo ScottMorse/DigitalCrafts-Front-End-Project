@@ -10,9 +10,13 @@
   margin-top: -1px;
 }
  
+#favorites-menu-wrap{
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    display: none;
+}
+
 #favorites-menu{
     margin: 10px;
-    transition: opacity 0.5s ease;
-    /* display: none; */
 }
 
