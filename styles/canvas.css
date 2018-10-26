@@ -21,13 +21,13 @@ body{
   font-family: Mali, monospace;
   font-size: 20px;
   color: whitesmoke;
-  width: 300px;
+  width: 40%;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 5%;
 
 }
 #wild-title{
-  margin-top: 100px;
+  margin-top: 5%;
 }
 
 #loader{
@@ -116,10 +116,10 @@ background-size: contain;
   background-size:cover;
   background-repeat: no-repeat;
   cursor: pointer;
-  -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
-  -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
-  -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
-  animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -webkit-animation: pulse 1.5s infinite linear;
+  -moz-animation: pulse 1.5s infinite linear;
+  -ms-animation: pulse 1.5s infinite linear;
+  animation: pulse 1.5s infinite linear;
 }
 .pulse-button:hover
 {
@@ -131,7 +131,27 @@ background-size: contain;
 
 }
 
-@-webkit-keyframes pulse {to {box-shadow: 0 0 0 45px rgb(255, 254, 226, .4);}}
-@-moz-keyframes pulse {to {box-shadow: 0 0 0 45px rgb(255, 254, 226, .4);}}
-@-ms-keyframes pulse {to {box-shadow: 0 0 0 45px rgb(255, 254, 226, .4);}}
-@keyframes pulse {to {box-shadow: 0 0 0 45px rgb(255, 254, 226, .4);}}
+@-webkit-keyframes pulse {
+  25% {box-shadow: 0 0 10px 10px rgb(255, 254, 226, .5);}
+  50% {box-shadow: 0 0 20px 20px rgb(255, 254, 226, .5);}
+  75% {box-shadow: 0 0 10px 10px rgb(255, 254, 226, .5);}
+  100% {box-shadow: 0 0 0px 0px rgb(255, 254, 226, .5);}
+}
+@-moz-keyframes pulse {
+  25% {box-shadow: 0 0 10px 10px rgb(255, 254, 226, .5);}
+  50% {box-shadow: 0 0 20px 20px rgb(255, 254, 226, .5);}
+  75% {box-shadow: 0 0 10px 10px rgb(255, 254, 226, .5);}
+  100% {box-shadow: 0 0 0px 0px rgb(255, 254, 226, .5);}
+}
+@-ms-keyframes pulse {
+  25% {box-shadow: 0 0 10px 10px rgb(255, 254, 226, .5);}
+  50% {box-shadow: 0 0 20px 20px rgb(255, 254, 226, .5);}
+  75% {box-shadow: 0 0 10px 10px rgb(255, 254, 226, .5);}
+  100% {box-shadow: 0 0 0px 0px rgb(255, 254, 226, .5);}
+}
+@keyframes pulse {
+  25% {box-shadow: 0 0 10px 10px rgb(255, 254, 226, .5);}
+  50% {box-shadow: 0 0 20px 20px rgb(255, 254, 226, .5);}
+  75% {box-shadow: 0 0 10px 10px rgb(255, 254, 226, .5);}
+  100% {box-shadow: 0 0 0px 0px rgb(255, 254, 226, .5);}
+}

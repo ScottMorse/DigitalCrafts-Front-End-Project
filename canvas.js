@@ -126,7 +126,6 @@ function responsiveWheel() {
     ctx.clearRect(0,0,wheelSize,wheelSize);
 
     ctx.strokeStyle = "black";
-    ctx.lineWidth = 5;
 
 
       ctx.font = 'bold 14px Mali, monospace';
