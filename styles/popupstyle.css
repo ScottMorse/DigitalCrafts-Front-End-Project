@@ -29,8 +29,8 @@
 
 .pop-main {
     background-color: rgb(151, 0, 33);
-    border: 10px solid rgb(250, 175, 156);
-    box-shadow: 0 0 5px 2px rgba(0,0,0,0.3);
+    border: 4px double rgb(250, 175, 156);
+    box-shadow: 0 0 50px 5px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,8 +49,8 @@
 }
 
 .pop-title {
-    font-family: sans-serif;
-    color: whitesmoke;
+    font-family: Lobster,fantasy;
+    color: rgb(250, 175, 156);
     text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
     font-size: 40px;
 }
@@ -64,10 +64,24 @@
 
 .textBox {
     font-size: 20px;
+    font-family: Raleway,sans-serif;
 }
 
 .submit-button {
-    font-size: 50px;
+    font-size: 20px;
+    font-family: Lobster,fantasy;
+    margin: 10px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border-radius: 5% / 30%;
+    transition: background-color 0.35s ease, color 0.35s ease;
+    color: rgb(151, 0, 33);
+    background-color: rgb(250, 175, 156);
+    border: none;
+}
+
+.submit-button:hover{
+    color: rgb(44, 44, 46);
+    background-color: whitesmoke;
 }
 
 .content-slider {
@@ -82,16 +96,40 @@
 }
 
 .fire-err {
-    color: rgb(255, 42, 42);
-    font-family: sans-serif;
+    color: rgb(252, 212, 80);
+    font-family: Raleway,sans-serif;
     font-size: 16px;
+    width: 250px;
+    text-align: center;
 }
 
 .pop-x {
     position: absolute;
-    font-family: sans-serif;
+    font-family: Mali,sans-serif;
     font-size: 40px;
     color: rgb(250, 175, 156);
+    transition: color 0.35s ease, text-shadow 0.35s ease;
+}
+
+.pop-x:hover{
+    text-shadow: 0 0 20px whitesmoke;
+    color: whitesmoke;
+}
+
+.fire-button{
+    background-color: rgb(151, 0, 33);
+    color: rgb(250, 175, 156);
+    border-radius: 10% / 20%;
+    margin-left: 10px;
+    border: none;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    font-family: Poppins;
+    transition: color 0.35s ease, background-color 0.35s ease;
+}
+
+.fire-button:hover{
+    color: rgb(44, 44, 46);
+    background-color: whitesmoke;
 }
 
 .full-pop .pop-x {
@@ -100,15 +138,15 @@
 }
 
 .square-pop .pop-x {
-    transform: translate(-185px,-180px);
+    transform: translate(-175px,-170px);
 }
 
 .full-pop .pop-title {
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .cont-control{
-    font-family: sans-serif;
+    font-family: Raleway,sans-serif;
     font-size: 25px;
     color: rgb(151, 0, 33);
     background-color:  rgb(250, 175, 156);
@@ -137,7 +175,7 @@
 
 .pop-subtitle, .cont-title, .movie-theater {
     color: whitesmoke;
-    font-family: sans-serif;
+    font-family: Raleway,sans-serif;
 }
 
 .cont-wrap{
@@ -165,7 +203,7 @@
 }
 
 .cont-num{
-    font-family: sans-serif;
+    font-family: Raleway,sans-serif;
     font-size: 25px;
     color: rgb(250, 175, 156);
 }
@@ -184,7 +222,7 @@
 }
 
 .cont-link {
-    font-family: sans-serif;
+    font-family: Raleway,sans-serif;
     color: yellow;
 }
 
@@ -205,7 +243,7 @@
         height: 300px;
     }
     .square-pop .pop-x {
-        transform: translate(-130px,-125px);
+        transform: translate(-125px,-122px);
     }
     .cont-control{
         font-size: 18px;
