@@ -195,6 +195,10 @@ body{
     transform: translateY(calc(50vh - 138px));
 }
 
+#recipe-pop .next{
+    transform: translateY(calc(50vh - 110px));
+}
+
 /*!CHANGE IF THEATER POSTION STARTS WORKING*/
 .movie .cont-map{
     display: none;
