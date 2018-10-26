@@ -38,13 +38,15 @@ const mapButtons = Array.from(document.querySelectorAll('.map-button'))
 
 function toggleMap(){
     const contImg = this.previousElementSibling
+    const contMap = this.parentElement.lastElementChild
     if(contImg.classList.contains('transparent')){
-        this.parentElement.lastElementChild.classList.toggle('up')
+        contMap.classList.toggle('up')
+        contMap.style.opacity = 1
         setTimeout(()=>contImg.classList.toggle('transparent'),100)
     }
     else{
         contImg.classList.toggle('transparent')
-        setTimeout(()=>this.parentElement.lastElementChild.classList.toggle('up'),500)
+        setTimeout(()=>{contMap.classList.toggle('up');contMap.style.opacity = 0},500)
     }
 }
 

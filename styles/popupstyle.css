@@ -40,7 +40,7 @@ body{
     position: absolute;
     height: inherit;
     width: inherit;
-    min-height: 1000px;
+    min-height: 1200px;
     background-color: rgba(0,0,0,0.3);
 }
 
@@ -300,6 +300,8 @@ body{
     margin-top: 5px;
     position: absolute !important;
     transform: translateY(-27px);
+    transition: opacity 0.5s ease;
+    opacity: 0;
 }
 
 .restaurant-rating {
@@ -319,6 +321,5 @@ body{
 }
 
 #TESTBUTTON {
-    position: fixed;
     transform: translateY(500px);
 }

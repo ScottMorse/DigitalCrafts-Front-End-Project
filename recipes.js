@@ -28,6 +28,9 @@ function getUserIngredient(e){
       setTimeout(()=>{
         ingredientSelector.style.display = 'none'
       },800)
+      if(currentUserId){
+        document.getElementById('recipe-save-0').style.display = 'block'
+      }
       console.log(result.hits)
       const hits = result.hits
       let ri = 1
