@@ -128,7 +128,7 @@ function responsiveWheel() {
     ctx.strokeStyle = "black";
 
 
-      ctx.font = 'bold 14px Mali, monospace';
+      ctx.font = 'bold 20px Lobster';
 
     for(var i = 0; i < options.length; i++) {
       var angle = startAngle + i * arc;
@@ -150,7 +150,12 @@ function responsiveWheel() {
       var text = options[i];
 
       if(isMobile == false){
-        ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+          ctx.font = 'bold 24px Lobster,sans-serif';
+          ctx.fillText(text, -ctx.measureText(text).width / 2, 0)
+      }
+      else{
+          ctx.font = 'bold 16px Lobster,sans-serif';
+          ctx.fillText(text, -ctx.measureText(text).width / 2, 0)
       }
       ctx.restore();
     }
@@ -181,7 +186,6 @@ function spin() {
 
 function rotateWheel() {
   spinTime += 30;
-  console.log(spinTime, spinTimeTotal)
   if(spinTime >= spinTimeTotal) {
 
     stopRotateWheel();
@@ -292,4 +296,4 @@ function checkMobile(){
   }
 }
 
-resizeWindow()
+window.addEventListener('load',resizeWindow)

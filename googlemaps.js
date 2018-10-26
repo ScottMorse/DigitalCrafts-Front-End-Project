@@ -44,7 +44,6 @@ function toggleMap(){
     }
     else{
         contImg.classList.toggle('transparent')
-        console.log(this.parentElement.lastChild)
         setTimeout(()=>this.parentElement.lastElementChild.classList.toggle('up'),500)
     }
 }
