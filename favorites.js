@@ -1,6 +1,7 @@
 
 
 function addFavorite(){
+    this.innerHTML = "Saved to Favorites!"
     const splitId = this.id.split('-')
     const favType = splitId[0]
     const objInd = splitId[2]
