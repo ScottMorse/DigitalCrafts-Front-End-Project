@@ -41,12 +41,12 @@ function toggleMap(){
     const contMap = this.parentElement.lastElementChild
     if(contImg.classList.contains('transparent')){
         contMap.classList.toggle('up')
-        contMap.style.opacity = 1
+        contMap.style.opacity = 0
         setTimeout(()=>contImg.classList.toggle('transparent'),100)
     }
-    else{
+    else {
         contImg.classList.toggle('transparent')
-        setTimeout(()=>{contMap.classList.toggle('up');contMap.style.opacity = 0},500)
+        setTimeout(()=>{contMap.classList.toggle('up');contMap.style.opacity = 1},500)
     }
 }
 
