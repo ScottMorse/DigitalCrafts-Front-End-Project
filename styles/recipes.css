@@ -43,3 +43,7 @@
 #ingredientSubmit:hover{
     cursor: pointer;
 }
+
+#ingredientSubmit:focus{
+    outline:none;
+}

@@ -37,6 +37,8 @@ function getUserIngredient(e){
           masterObject.recipe.push(recipeObj)
           recipeEl.children[1].innerHTML = recipeObj.recipe.label
           recipeEl.children[2].style.backgroundImage = 'url(' + recipeObj.recipe.image + ')'
+          recipeEl.children[2].style.border = '6px solid whitesmoke'
+          recipeEl.children[2].style.boxShadow = '1px 1px 5px 2px rgba(245, 245, 245, 0.212)'
           recipeEl.children[3].href = recipeObj.recipe.url
           ri ++
       })

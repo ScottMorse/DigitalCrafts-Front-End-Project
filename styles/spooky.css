@@ -13,3 +13,8 @@ h1 {
   background-size: contain;
   background-position: 5px -5px;
 }
+
+.fire-button{
+  background-color: black;
+  color: rgb(255,154,0);
+}
