@@ -39,6 +39,7 @@ function getLocalTheaters(){
                     goodShowtime = showtime
                 }
             })
+            const theaterPos = {lat:30,lng:30} //!CHANGE TO DYNAMIC
             //! fetch("http://data.tmsapi.com/v1.1/theatres/" + goodShowtime.theatre.id + "&api_key=syh7qykyctv94cu3rybjna7b")
             //     .then(response => {
             //         response.json()
@@ -52,15 +53,21 @@ function getLocalTheaters(){
             movieEl.children[1].innerHTML = showing.title
             setTimeout(()=>{
                 movieEl.children[2].style.backgroundImage = 'url(' + 'http://developer.tmsimg.com/123456?&api_key=syh7qykyctv94cu3rybjna7b'.replace("123456",showing.preferredImage.uri) + ')'
+                movieEl.children[2].style.backgroundColor = 'whitesmoke'
+                movieEl.children[2].style.border = '6px solid whitesmoke'
             },mi * 600)
             const movieMapObj = allMaps["movie-map" + (mi + 1)]
-            const theaterPos = {lat:30,lng:30} //!CHANGE TO DYNAMIC
             movieMapObj.map.setCenter(theaterPos)
             const marker = new google.maps.Marker({position: theaterPos, map: movieMapObj.map});
             const theatUrl = `http://maps.google.com/maps/search/?api=1&z=15&query=${theaterPos.lat},${theaterPos.lng}&ll=${theaterPos.lat}+${theaterPos.lng}`
             marker.addListener('click',()=>openTab(theatUrl))
-            // movieEl.children[3].href = goodShowtime.ticketURI
-            // movieEl.children[4].innerHTML = "Theater: " + goodShowtime.theatre.name
+            if(goodShowtime.hasOwnProperty('ticketURI')){
+                movieEl.children[4].href = goodShowtime.ticketURI
+            }
+            else{
+                movieEl.children[4].innerHTML = ""
+            }
+            movieEl.children[5].innerHTML = "Theater: " + goodShowtime.theatre.name
             mi++
         })
         console.log(masterObject)
