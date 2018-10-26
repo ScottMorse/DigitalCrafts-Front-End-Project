@@ -185,8 +185,9 @@ body{
 }
 
 .pop-subtitle, .cont-title, .movie-theater {
-    color: whitesmoke;
-    font-family: Raleway,sans-serif;
+    color: rgb(250, 175, 156);
+    font-family: Lobster,sans-serif;
+    font-size: 20px;
 }
 
 .cont-wrap{
@@ -224,11 +225,18 @@ body{
 }
 
 .cont-img {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     background-size: cover;
     background-position: center;
     margin: 10px;
+    z-index: 1;
+    transition: opacity 0.5s ease;
+    user-select: none;
+}
+
+.cont-img.transparent {
+    opacity: 0;
 }
 
 .cont-link {
@@ -243,15 +251,38 @@ body{
     color: whitesmoke;
 }
 
-.cont-map{
+.map-button {
+    color: rgb(151, 0, 33);
+    background-color: rgb(250, 175, 156);
+    border-radius: 10% / 20%;
+    padding: 5px;
+    font-family: Poppins,sans-serif;
+    font-size: 20px;
+    transition: color 0.35s ease, backround-color 0.35s ease;
+}
+
+.cont-map.up {
+    z-index: 2;
+}
+
+.map-button:hover{
+    cursor: pointer;
+    color: rgb(44, 44, 46);
+    background-color: whitesmoke;
+}
+
+.cont-map {
     height: 200px;
     width: 200px;
     margin-top: 5px;
+    position: absolute !important;
+    transform: translateY(-30px);
 }
 
-.restaurant-rating{
-    color: whitesmoke;
+.restaurant-rating {
+    color: gold;
     font-size: 40px;
+    letter-spacing: 2px;
 }
 
 @media screen and (max-width: 768px){

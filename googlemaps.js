@@ -33,3 +33,22 @@ function openTab(url){
     let win = window.open(url,'_blank')
     win.focus()
 }
+
+const mapButtons = Array.from(document.querySelectorAll('.map-button'))
+
+function toggleMap(){
+    const contImg = this.previousElementSibling
+    if(contImg.classList.contains('transparent')){
+        this.parentElement.lastElementChild.classList.toggle('up')
+        setTimeout(()=>contImg.classList.toggle('transparent'),100)
+    }
+    else{
+        contImg.classList.toggle('transparent')
+        console.log(this.parentElement.lastChild)
+        setTimeout(()=>this.parentElement.lastElementChild.classList.toggle('up'),500)
+    }
+}
+
+mapButtons.forEach(mapButton => {
+    mapButton.addEventListener('click',toggleMap)
+})
