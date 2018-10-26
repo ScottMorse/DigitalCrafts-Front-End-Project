@@ -2,6 +2,17 @@ body{
     min-height: 700px;
 }
 
+#loader h1 {
+    text-align: center;
+    font-size: 80px;
+    max-width: 500px;
+}
+
+@media screen and (max-width: 480px){
+    #loader h1 {
+        font-size: 60px;
+    }
+}
 
 .pop-up {
     position: absolute;
@@ -181,13 +192,25 @@ body{
 .next {
     align-self: flex-end;
     margin-right: 5px;
-    transform: translateY(calc(50vh - 95px));
+    transform: translateY(calc(50vh - 138px));
+}
+
+/*!CHANGE IF THEATER POSTION STARTS WORKING*/
+.movie .cont-map{
+    display: none;
+}
+.movie .map-button{
+    display: none;
 }
 
 .pop-subtitle, .cont-title, .movie-theater {
     color: rgb(250, 175, 156);
     font-family: Lobster,sans-serif;
     font-size: 20px;
+}
+
+.pop-subtitle{
+    color: whitesmoke;
 }
 
 .cont-wrap{
@@ -276,7 +299,7 @@ body{
     width: 200px;
     margin-top: 5px;
     position: absolute !important;
-    transform: translateY(-30px);
+    transform: translateY(-27px);
 }
 
 .restaurant-rating {

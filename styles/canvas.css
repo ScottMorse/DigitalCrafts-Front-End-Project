@@ -47,7 +47,7 @@ body{
 
 #load-mask{
   z-index: 12;
-  transition: transform 1s ease;
+  transition: transform 3.5s linear;
   transform: translateX(0);
   background-color: rgb(250, 175, 156);
   width: inherit;
