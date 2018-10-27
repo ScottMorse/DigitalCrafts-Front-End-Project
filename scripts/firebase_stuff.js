@@ -39,7 +39,7 @@ function loginUser(email,pswd){
             favMenu.style.display = 'unset'
             setTimeout(()=>favMenu.style.opacity = 1,100)
             const newScript = document.createElement('script')
-            newScript.src = 'favorites.js'
+            newScript.src = 'scripts/favorites.js'
             document.body.appendChild(newScript)
             hidePopUp(document.getElementById('log-pop'))
             currentUserId = firebase.auth().currentUser.uid

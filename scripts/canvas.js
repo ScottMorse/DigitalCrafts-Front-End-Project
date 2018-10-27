@@ -211,7 +211,6 @@ function rotateWheel() {
   const currentDegrees = startAngle * 180 / Math.PI + 90
   const diff = Math.round(currentDegrees - previousDegrees)
   if(diff > 35){
-    console.log(diff)
     playAudio('audio/wholetone/' + wholeToneScale[wholeToneIndex])
     const remainder = currentDegrees % 36
     previousDegrees = currentDegrees

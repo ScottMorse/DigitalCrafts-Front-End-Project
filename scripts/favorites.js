@@ -10,7 +10,6 @@ function addFavorite(){
     let category
     if(favType == "movie"){
         name = fetchedObj.title
-        fetchedObj.masterLink = 
         category = "movies"
     }
     else if(favType == "restaurant"){
@@ -34,8 +33,9 @@ function addFavorite(){
 
 const saveButtons = Array.from(document.querySelectorAll('.save'))
 saveButtons.forEach(saveButton => {
-    saveButton.style.display = 'block'
+    if(saveButton.id != "recipe-save-0")
+    {
+       saveButton.style.display = 'block'
+    }
     saveButton.addEventListener('click',addFavorite)
 })
-
-document.getElementById('recipe-save-0').style.display = 'none'

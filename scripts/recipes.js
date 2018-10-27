@@ -12,6 +12,7 @@ const ingredientTextBox = document.getElementById('ingredientTextBox')
 const ingredientForm = document.getElementById('ingredientForm')
 const ingredientSelector = document.getElementById('ingredient-selector')
 const recipeEls = Array.from(document.querySelectorAll('.recipe'))
+const recipeLinks = Array.from(document.querySelectorAll('.recipe-link'))
 
 let userIngredient
 function getUserIngredient(e){
@@ -27,10 +28,11 @@ function getUserIngredient(e){
       ingredientSelector.style.opacity = 0
       setTimeout(()=>{
         ingredientSelector.style.display = 'none'
+        if(currentUserId){
+          document.getElementById('recipe-save-0').style.display = 'block'
+        }
+        recipeLinks.forEach(recipeLink=>recipeLink.style.display="block")
       },800)
-      if(currentUserId){
-        document.getElementById('recipe-save-0').style.display = 'block'
-      }
       console.log(result.hits)
       const hits = result.hits
       let ri = 1

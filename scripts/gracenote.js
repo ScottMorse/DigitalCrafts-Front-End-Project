@@ -28,18 +28,16 @@ function getLocalTheaters(){
         console.log(showings)
         let mi = 0
         const today = new Date()
-        let goodShowtime
         movieEls.forEach(movieEl => {
             const showing = showings[mi]
             showing.masterKey = mi
             masterObject.movie.push(showing)
             showing.showtimes.forEach(showtime => {
                 const showtimeDate = Date.parse(showtime.dateTime)
-                if(showtimeDate - today.getTime() >= 36000){
-                    goodShowtime = showtime
+                if(showtimeDate - today.getTime() >= 36000 && !showing.goodShowtime){
+                    showing.goodShowtime = showtime
                 }
-            })
-            const theaterPos = {lat:30,lng:30} //!CHANGE TO DYNAMIC
+            }) 
             //! fetch("http://data.tmsapi.com/v1.1/theatres/" + goodShowtime.theatre.id + "&api_key=syh7qykyctv94cu3rybjna7b")
             //     .then(response => {
             //         response.json()
@@ -57,17 +55,16 @@ function getLocalTheaters(){
                 movieEl.children[2].style.border = '6px solid whitesmoke'
             },mi * 600)
             const movieMapObj = allMaps["movie-map" + (mi + 1)]
-            movieMapObj.map.setCenter(theaterPos)
-            const marker = new google.maps.Marker({position: theaterPos, map: movieMapObj.map});
-            const theatUrl = `http://maps.google.com/maps/search/?api=1&z=15&query=${theaterPos.lat},${theaterPos.lng}&ll=${theaterPos.lat}+${theaterPos.lng}`
-            marker.addListener('click',()=>openTab(theatUrl))
-            if(goodShowtime.hasOwnProperty('ticketURI')){
-                movieEl.children[4].href = goodShowtime.ticketURI
+            movieMapObj.map.setCenter({lat:userLat,lng:userLon})
+            const theatUrl = `http://maps.google.com/maps/search/?api=1&z=15&query=${showing.goodShowtime.theatre.name.match(wordRegex).join('+')}&ll=${userLat}+${userLon}`
+            movieMapObj.map.addListener('click',()=>openTab(theatUrl))
+            if(showing.goodShowtime.hasOwnProperty('ticketURI')){
+                movieEl.children[4].href = showing.goodShowtime.ticketURI
             }
             else{
                 movieEl.children[4].innerHTML = ""
             }
-            movieEl.children[5].innerHTML = "Theater: " + goodShowtime.theatre.name
+            movieEl.children[5].innerHTML = "Theater: " + showing.goodShowtime.theatre.name
             mi++
         })
         console.log(masterObject)

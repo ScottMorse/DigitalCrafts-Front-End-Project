@@ -39,7 +39,7 @@
                      const restMapObj = allMaps["restaurant-map" + resti]
                      restMapObj.map.setCenter(restPos)
                      const marker = new google.maps.Marker({position: restPos, map: restMapObj.map});
-                     const mapsUrl = `http://maps.google.com/maps/search/?api=1&z=15&query=${restPos.lat},${restPos.lng}&ll=${restPos.lat}+${restPos.lng}`
+                     const mapsUrl = `http://maps.google.com/maps/search/?api=1&z=15&query=${restaurant.name.match(wordRegex).join('+')}&ll=${restPos.lat}+${restPos.lng}`
                      marker.addListener('click',()=>openTab(mapsUrl))
                      resti++
                   })

@@ -204,12 +204,12 @@ body{
 }
 
 /*!CHANGE IF THEATER POSTION STARTS WORKING*/
-.movie .cont-map{
+/* .movie .cont-map{
     display: none;
 }
 .movie .map-button{
     display: none;
-}
+} */
 
 .pop-subtitle, .cont-title, .movie-theater {
     color: rgb(250, 175, 156);
@@ -316,6 +316,10 @@ body{
     color: gold;
     font-size: 40px;
     letter-spacing: 2px;
+}
+
+.recipe-link{
+    display: none;
 }
 
 @media screen and (max-width: 768px){
