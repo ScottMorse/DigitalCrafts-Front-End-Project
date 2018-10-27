@@ -14,6 +14,10 @@ body{
     }
 }
 
+*:focus{
+    outline: none;
+}
+
 .pop-up {
     position: absolute;
     display: flex;
