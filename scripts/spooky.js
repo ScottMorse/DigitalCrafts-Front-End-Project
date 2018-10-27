@@ -9,7 +9,7 @@ let spookTune
 let spookFound = false
 function toggleSpooky(){
   spookyPulseButton.classList.toggle('spooky')
-  document.head.children.forEach(child => {
+  Array.from(document.head.children).forEach(child => {
     if(child.id == "spooky"){
       document.head.removeChild(document.head.lastChild)
       clearInterval(musIntvl)

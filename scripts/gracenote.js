@@ -19,7 +19,7 @@ const movieEls = Array.from(document.querySelectorAll('.movie'))
 
 let showings
 function getLocalTheaters(){
-    fetch("http://data.tmsapi.com/v1.1/movies/showings?startDate=" + getDateYYYYMMDD() + "&api_key=syh7qykyctv94cu3rybjna7b&lat=" + Math.round(userLat) + "&lng=" + Math.round(userLon) + "&radius=20",)
+    fetch("https://cors-anywhere.herokuapp.com/data.tmsapi.com/v1.1/movies/showings?startDate=" + getDateYYYYMMDD() + "&api_key=syh7qykyctv94cu3rybjna7b&lat=" + Math.round(userLat) + "&lng=" + Math.round(userLon) + "&radius=20",)
     .then(response => {
         return response.json()
     })
@@ -50,7 +50,7 @@ function getLocalTheaters(){
             //     })
             movieEl.children[1].innerHTML = showing.title
             setTimeout(()=>{
-                movieEl.children[2].style.backgroundImage = 'url(' + 'http://developer.tmsimg.com/123456?&api_key=syh7qykyctv94cu3rybjna7b'.replace("123456",showing.preferredImage.uri) + ')'
+                movieEl.children[2].style.backgroundImage = 'url(' + 'https://cors-anywhere.herokuapp.com/developer.tmsimg.com/123456?&api_key=syh7qykyctv94cu3rybjna7b'.replace("123456",showing.preferredImage.uri) + ')'
                 movieEl.children[2].style.backgroundColor = 'whitesmoke'
                 movieEl.children[2].style.border = '6px solid whitesmoke'
             },mi * 600)
