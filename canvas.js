@@ -31,6 +31,20 @@ var canvas = document.getElementById("canvas");
 // canvas.width  = window.innerWidth;
 // canvas.height = window.innerHeight;
 
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
 
 
 document.getElementById("spin").addEventListener("click", spin);
@@ -184,15 +198,35 @@ function spin() {
   rotateWheel();
 }
 
+let previousDegrees = 0
+let wholeToneIndex = 0
 function rotateWheel() {
   spinTime += 30;
   if(spinTime >= spinTimeTotal) {
-
     stopRotateWheel();
     return;
   }
   var spinAngle = spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
   startAngle += (spinAngle * Math.PI / 100);
+  const currentDegrees = startAngle * 180 / Math.PI + 90
+  const diff = Math.round(currentDegrees - previousDegrees)
+  if(diff > 35){
+    console.log(diff)
+    playAudio('audio/wholetone/' + wholeToneScale[wholeToneIndex])
+    const remainder = currentDegrees % 36
+    previousDegrees = currentDegrees
+    // if(diff > 36){
+    //   previousDegrees += diff -  36
+    // }
+    // else if(diff < 36){
+    //   previousDegrees -= 36 - diff
+    // }
+    previousDegrees = currentDegrees
+    wholeToneIndex++
+    if(wholeToneIndex == wholeToneScale.length){
+      wholeToneIndex = 0
+    }
+  }
   responsiveWheel()
   spinTimeout = setTimeout('rotateWheel()', 30);
 }
@@ -205,6 +239,12 @@ function stopRotateWheel() {
   ctx.save();
 
   var text = options[index]
+  if(index == 1 || index == 6){
+    playAudio('audio/err.mp3')
+  }
+  else{
+    playAudio('audio/success.mp3')
+  }
 
   //to show result
   //ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
