@@ -6,15 +6,19 @@ spookyToggleButton.addEventListener("click", toggleSpooky)
 
 let musIntvl
 let spookTune
+let spookFound = false
 function toggleSpooky(){
   spookyPulseButton.classList.toggle('spooky')
-  if(document.head.lastChild.id == "spooky"){
-    document.head.removeChild(document.head.lastChild)
-    clearInterval(musIntvl)
-    spookTune.pause()
-    spookTune.currentTime = 0
-  }
-  else{
+  document.head.children.forEach(child => {
+    if(child.id == "spooky"){
+      document.head.removeChild(document.head.lastChild)
+      clearInterval(musIntvl)
+      spookTune.pause()
+      spookTune.currentTime = 0
+      spookFound = true
+    }
+  })
+  if(!spookFound){
     const spookyCss = document.createElement('link')
     spookyCss.id = "spooky"
     spookyCss.rel = "stylesheet"
@@ -27,6 +31,7 @@ function toggleSpooky(){
       spookTune.play()
     },14400)
   }
+  spookFound = false
 }
 
 const todaysDate = new Date()
